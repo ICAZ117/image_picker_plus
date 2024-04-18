@@ -240,7 +240,6 @@ class _ImagesViewPageState extends State<ImagesViewPage>
                       return Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          normalAppBar(),
                           Flexible(
                               child: normalGridView(mediaListValue,
                                   currentPageValue, lastPageValue)),
@@ -712,7 +711,6 @@ class _ImagesViewPageState extends State<ImagesViewPage>
                     duration: Duration(milliseconds: duration),
                     child: Column(
                       children: [
-                        normalAppBar(),
                         CropImageView(
                           cropKey: cropKey,
                           indexOfSelectedImages: indexOfSelectedImages,
