@@ -31,6 +31,7 @@ class ImagesViewPage extends StatefulWidget {
   final Color blackColor;
   final bool showImagePreview;
   final SliverGridDelegateWithFixedCrossAxisCount gridDelegate;
+  final ThemeData? theme;
   const ImagesViewPage({
     Key? key,
     required this.multiSelectedImages,
@@ -50,6 +51,7 @@ class ImagesViewPage extends StatefulWidget {
     required this.leftFunction,
     required this.rightFunction,
     this.callbackFunction,
+    this.theme,
   }) : super(key: key);
 
   @override
@@ -324,7 +326,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
   Widget normalAppBar() {
     double width = MediaQuery.of(context).size.width;
     return Container(
-      color: widget.blackColor,
+      color: widget.theme?.colorScheme.surface ?? widget.whiteColor,
       height: 56,
       width: width,
       child: Row(
