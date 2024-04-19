@@ -59,6 +59,12 @@ class ImagePickerPlus {
           multiSelection: multiSelection,
           pickerSource: pickerSource,
           source: source,
+          leftFunction: () {
+            print("DEFAULT LEFT FXN");
+          },
+          rightFunction: () {
+            print("DEFAULT RIGHT FXN");
+          },
         ),
         maintainState: false,
       ),
