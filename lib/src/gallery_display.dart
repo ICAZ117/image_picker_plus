@@ -14,6 +14,7 @@ class CustomImagePicker extends StatefulWidget {
   final PickerSource pickerSource;
   final Function leftFunction;
   final Function rightFunction;
+  final ThemeData? theme;
   const CustomImagePicker({
     required this.source,
     required this.multiSelection,
@@ -21,6 +22,7 @@ class CustomImagePicker extends StatefulWidget {
     required this.pickerSource,
     required this.leftFunction,
     required this.rightFunction,
+    this.theme,
     super.key,
   });
 
@@ -303,6 +305,7 @@ class CustomImagePickerState extends State<CustomImagePicker>
       maximumSelection: maximumSelection,
       leftFunction: widget.leftFunction,
       rightFunction: widget.rightFunction,
+      theme: widget.theme,
     );
   }
 
