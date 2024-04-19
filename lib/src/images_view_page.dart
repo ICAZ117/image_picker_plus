@@ -324,7 +324,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
   Widget normalAppBar() {
     double width = MediaQuery.of(context).size.width;
     return Container(
-      color: widget.whiteColor,
+      color: widget.blackColor,
       height: 56,
       width: width,
       child: Row(
