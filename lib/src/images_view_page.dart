@@ -21,6 +21,8 @@ class ImagesViewPage extends StatefulWidget {
   final bool showInternalImages;
   final int maximumSelection;
   final AsyncValueSetter<SelectedImagesDetails>? callbackFunction;
+  final Function leftFunction;
+  final Function rightFunction;
 
   /// To avoid lag when you interacting with image when it expanded
   final AppTheme appTheme;
@@ -45,6 +47,8 @@ class ImagesViewPage extends StatefulWidget {
     required this.showImagePreview,
     required this.gridDelegate,
     required this.maximumSelection,
+    required this.leftFunction,
+    required this.rightFunction,
     this.callbackFunction,
   }) : super(key: key);
 
@@ -240,6 +244,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
                       return Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
+                          normalAppBar(),
                           Flexible(
                               child: normalGridView(mediaListValue,
                                   currentPageValue, lastPageValue)),
@@ -327,6 +332,15 @@ class _ImagesViewPageState extends State<ImagesViewPage>
         children: [
           existButton(),
           const Spacer(),
+          Text(
+            'New Post',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 25,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const Spacer(),
           doneButton(),
         ],
       ),
@@ -335,9 +349,9 @@ class _ImagesViewPageState extends State<ImagesViewPage>
 
   IconButton existButton() {
     return IconButton(
-      icon: Icon(Icons.clear_rounded, color: widget.blackColor, size: 30),
+      icon: Icon(Icons.arrow_back),
       onPressed: () {
-        Navigator.of(context).maybePop(null);
+        widget.leftFunction();
       },
     );
   }
@@ -346,9 +360,15 @@ class _ImagesViewPageState extends State<ImagesViewPage>
     return ValueListenableBuilder(
       valueListenable: indexOfSelectedImages,
       builder: (context, List<int> indexOfSelectedImagesValue, child) =>
-          IconButton(
-        icon: const Icon(Icons.arrow_forward_rounded,
-            color: Colors.blue, size: 30),
+          GestureDetector(
+        child: Container(
+            margin: EdgeInsets.only(right: 20),
+            child: Text(
+              "Next",
+              style: TextStyle(
+                fontSize: 17,
+              ),
+            )),
         onPressed: () async {
           double aspect = expandImage.value ? 6 / 8 : 1.0;
           if (widget.multiSelectionMode.value && widget.multiSelection) {
@@ -426,6 +446,8 @@ class _ImagesViewPageState extends State<ImagesViewPage>
               Navigator.of(context).maybePop(details);
             }
           }
+          // call right function
+          widget.rightFunction();
         },
       ),
     );
@@ -711,6 +733,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
                     duration: Duration(milliseconds: duration),
                     child: Column(
                       children: [
+                        normalAppBar(),
                         CropImageView(
                           cropKey: cropKey,
                           indexOfSelectedImages: indexOfSelectedImages,
