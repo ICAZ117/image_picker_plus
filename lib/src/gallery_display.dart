@@ -301,8 +301,8 @@ class CustomImagePickerState extends State<CustomImagePicker>
       showInternalVideos: showInternalVideos,
       showInternalImages: showInternalImages,
       maximumSelection: maximumSelection,
-      leftFunction: leftFunction,
-      rightFunction: rightFunction,
+      leftFunction: widget.leftFunction,
+      rightFunction: widget.rightFunction,
     );
   }
 
