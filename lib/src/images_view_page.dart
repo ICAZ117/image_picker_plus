@@ -369,7 +369,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
                 fontSize: 17,
               ),
             )),
-        onPressed: () async {
+        onTap: () async {
           double aspect = expandImage.value ? 6 / 8 : 1.0;
           if (widget.multiSelectionMode.value && widget.multiSelection) {
             if (areaOfCropsKeys.value.length !=
