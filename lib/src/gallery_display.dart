@@ -14,6 +14,7 @@ class CustomImagePicker extends StatefulWidget {
   final PickerSource pickerSource;
   final Function leftFunction;
   final Function rightFunction;
+  final Function clearMediaFunction;
   final ThemeData? theme;
   const CustomImagePicker({
     required this.source,
@@ -22,6 +23,7 @@ class CustomImagePicker extends StatefulWidget {
     required this.pickerSource,
     required this.leftFunction,
     required this.rightFunction,
+    required this.clearMediaFunction,
     this.theme,
     super.key,
   });
@@ -229,15 +231,17 @@ class CustomImagePickerState extends State<CustomImagePicker>
             ),
           ),
           SizedBox(
-            height: 100,
+            height: 50,
             child: ElevatedButton(
               onPressed: () {
-                print("button pressed");
+                widget.clearMediaFunction();
               },
               child: Text("Continue Without Media"),
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity,
-                    double.infinity), // <--- this line helped me
+                minimumSize: const Size(
+                  double.infinity,
+                  double.infinity,
+                ),
               ),
             ),
           ),
