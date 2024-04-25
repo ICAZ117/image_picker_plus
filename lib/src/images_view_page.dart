@@ -255,7 +255,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
                       return Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          normalAppBar(),
+                          // normalAppBar(),
                           Flexible(
                               child: normalGridView(mediaListValue,
                                   currentPageValue, lastPageValue)),
