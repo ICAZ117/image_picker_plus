@@ -321,7 +321,10 @@ class CustomImagePickerState extends State<CustomImagePicker>
                 ? tapBarMessage(true)
                 : Column(
                     children: [
-                      tabBar(),
+                      SizedBox(
+                        height: 100,
+                        child: tabBar(),,
+                      )
                       ElevatedButton(
                           onPressed: () {
                             print("button pressed");
