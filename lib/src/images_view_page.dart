@@ -776,9 +776,6 @@ class _ImagesViewPageState extends State<ImagesViewPage>
   bool get wantKeepAlive => true;
 }
 
-import 'package:provider/provider.dart';
-import 'package:flutter/material.dart';
-
 class IPPSequentialAppBar extends StatelessWidget {
   final Function leftFunction;
   final IconData leftIcon;
