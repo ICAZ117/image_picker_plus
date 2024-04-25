@@ -317,7 +317,21 @@ class CustomImagePickerState extends State<CustomImagePicker>
         switchInCurve: Curves.easeInOutQuart,
         child: widget.source == ImageSource.both ||
                 widget.pickerSource == PickerSource.both
-            ? (showDeleteTextValue ? tapBarMessage(true) : tabBar())
+            ? (showDeleteTextValue
+                ? tapBarMessage(true)
+                : Column(
+                    children: [
+                      tabBar(),
+                      ElevatedButton(
+                          onPressed: () {
+                            print("button pressed");
+                          },
+                          child: Text("Continue Without Media")),
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size(double.infinity, double.infinity), // <--- this line helped me
+                          ),
+                    ],
+                  ))
             : const SizedBox(),
       ),
     );
@@ -351,11 +365,7 @@ class CustomImagePickerState extends State<CustomImagePicker>
                       ? 0
                       : (divideNumber == 2 ? widthOfTab : widthOfScreen / 1.5)),
               child: Container(height: 1, width: widthOfTab, color: blackColor),
-            ),
-            ElevatedButton(onPressed: () {
-              print("button pressed");
-            
-            }, child: Text("Continue Without Media")),
+            )
           ],
         );
       },
