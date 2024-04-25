@@ -228,7 +228,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
             backgroundColor: widget.appTheme.primaryColor,
             appBar: IPPSequentialAppBar(
               leftFunction: widget.leftFunction,
-              leftIcon: Icons.clear_rounded,
+              leftIcon: Icons.arrow_back,
               rightFunction: widget.rightFunction,
               rightText: 'Next',
             ).build(context),
@@ -744,7 +744,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
                     duration: Duration(milliseconds: duration),
                     child: Column(
                       children: [
-                        normalAppBar(),
+                        // normalAppBar(),
                         CropImageView(
                           cropKey: cropKey,
                           indexOfSelectedImages: indexOfSelectedImages,
