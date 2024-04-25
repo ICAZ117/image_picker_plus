@@ -215,8 +215,7 @@ class CustomImagePickerState extends State<CustomImagePicker>
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Flexible(
-            child: ValueListenableBuilder(
+            ValueListenableBuilder(
               valueListenable: pageController,
               builder: (context, PageController pageControllerValue, child) =>
                   PageView(
@@ -229,22 +228,21 @@ class CustomImagePickerState extends State<CustomImagePicker>
                 ],
               ),
             ),
+          SizedBox(
+            height: 50,
+            child: ElevatedButton(
+              onPressed: () {
+                widget.clearMediaFunction?.call();
+              },
+              child: Text("Continue Without Media"),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(
+                  double.infinity,
+                  double.infinity,
+                ),
+              ),
+            ),
           ),
-          // SizedBox(
-          //   height: 50,
-          //   child: ElevatedButton(
-          //     onPressed: () {
-          //       widget.clearMediaFunction?.call();
-          //     },
-          //     child: Text("Continue Without Media"),
-          //     style: ElevatedButton.styleFrom(
-          //       minimumSize: const Size(
-          //         double.infinity,
-          //         double.infinity,
-          //       ),
-          //     ),
-          //   ),
-          // ),
           if (multiSelectedImage.value.length < maximumSelection) ...[
             ValueListenableBuilder(
               valueListenable: multiSelectionMode,
