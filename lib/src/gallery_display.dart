@@ -228,6 +228,18 @@ class CustomImagePickerState extends State<CustomImagePicker>
               ),
             ),
           ),
+          Flexible(
+            child: ElevatedButton(
+              onPressed: () {
+                print("button pressed");
+              },
+              child: Text("Continue Without Media"),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(double.infinity,
+                    double.infinity), // <--- this line helped me
+              ),
+            ),
+          ),
           if (multiSelectedImage.value.length < maximumSelection) ...[
             ValueListenableBuilder(
               valueListenable: multiSelectionMode,
@@ -255,16 +267,6 @@ class CustomImagePickerState extends State<CustomImagePicker>
           ] else ...[
             tapBarMessage(false)
           ],
-          ElevatedButton(
-            onPressed: () {
-              print("button pressed");
-            },
-            child: Text("Continue Without Media"),
-            style: ElevatedButton.styleFrom(
-              minimumSize: const Size(
-                  double.infinity, double.infinity), // <--- this line helped me
-            ),
-          ),
         ],
       ),
     );
