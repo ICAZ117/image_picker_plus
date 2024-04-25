@@ -228,7 +228,8 @@ class CustomImagePickerState extends State<CustomImagePicker>
               ),
             ),
           ),
-          Flexible(
+          SizedBox(
+            height: 100,
             child: ElevatedButton(
               onPressed: () {
                 print("button pressed");
