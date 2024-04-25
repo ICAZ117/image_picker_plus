@@ -237,7 +237,21 @@ class CustomImagePickerState extends State<CustomImagePicker>
                     if (multiSelectionModeValue) {
                       return clearSelectedImages();
                     } else {
-                      return buildTabBar();
+                      return Column(
+                        children: [
+                          buildTabBar(),
+                          ElevatedButton(
+                            onPressed: () {
+                              print("button pressed");
+                            },
+                            child: Text("Continue Without Media"),
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: const Size(double.infinity,
+                                  double.infinity), // <--- this line helped me
+                            ),
+                          ),
+                        ],
+                      );
                     }
                   } else {
                     return Visibility(
@@ -317,23 +331,7 @@ class CustomImagePickerState extends State<CustomImagePicker>
         switchInCurve: Curves.easeInOutQuart,
         child: widget.source == ImageSource.both ||
                 widget.pickerSource == PickerSource.both
-            ? (showDeleteTextValue
-                ? tapBarMessage(true)
-                : Column(
-                    children: [
-                      Expanded(child: tabBar()),
-                      ElevatedButton(
-                        onPressed: () {
-                          print("button pressed");
-                        },
-                        child: Text("Continue Without Media"),
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(double.infinity,
-                              double.infinity), // <--- this line helped me
-                        ),
-                      ),
-                    ],
-                  ))
+            ? (showDeleteTextValue ? tapBarMessage(true) : tabBar())
             : const SizedBox(),
       ),
     );
