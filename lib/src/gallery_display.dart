@@ -234,7 +234,7 @@ class CustomImagePickerState extends State<CustomImagePicker>
             height: 50,
             child: ElevatedButton(
               onPressed: () {
-                widget.clearMediaFunction();
+                widget.clearMediaFunction()?;
               },
               child: Text("Continue Without Media"),
               style: ElevatedButton.styleFrom(
