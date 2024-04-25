@@ -323,7 +323,7 @@ class CustomImagePickerState extends State<CustomImagePicker>
                     children: [
                       SizedBox(
                         height: 100,
-                        child: tabBar(),,
+                        child: tabBar(),
                       ),
                       ElevatedButton(
                           onPressed: () {
