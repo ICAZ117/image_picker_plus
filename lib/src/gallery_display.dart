@@ -321,18 +321,16 @@ class CustomImagePickerState extends State<CustomImagePicker>
                 ? tapBarMessage(true)
                 : Column(
                     children: [
-                      SizedBox(
-                        height: 100,
-                        child: tabBar(),
-                      ),
+                      Expanded(child: tabBar()),
                       ElevatedButton(
-                          onPressed: () {
-                            print("button pressed");
-                          },
-                          child: Text("Continue Without Media"),
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size(double.infinity, double.infinity), // <--- this line helped me
-                          ),
+                        onPressed: () {
+                          print("button pressed");
+                        },
+                        child: Text("Continue Without Media"),
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(double.infinity,
+                              double.infinity), // <--- this line helped me
+                        ),
                       ),
                     ],
                   ))
