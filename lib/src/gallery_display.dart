@@ -215,7 +215,8 @@ class CustomImagePickerState extends State<CustomImagePicker>
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-            ValueListenableBuilder(
+          Flexible(
+            child: ValueListenableBuilder(
               valueListenable: pageController,
               builder: (context, PageController pageControllerValue, child) =>
                   PageView(
@@ -228,6 +229,7 @@ class CustomImagePickerState extends State<CustomImagePicker>
                 ],
               ),
             ),
+          ),
           SizedBox(
             height: 50,
             child: ElevatedButton(
