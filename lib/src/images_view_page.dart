@@ -231,7 +231,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
               leftIcon: Icons.clear_rounded,
               rightFunction: widget.rightFunction,
               rightText: 'Next',
-            ),
+            ).build(context),
             body: buildGridView(),
         );
   }
@@ -776,7 +776,6 @@ class _ImagesViewPageState extends State<ImagesViewPage>
   bool get wantKeepAlive => true;
 }
 
-import 'package:blend/global_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -796,9 +795,6 @@ class IPPSequentialAppBar extends StatelessWidget {
 
   @override
   PreferredSize build(BuildContext context) {
-    final provider = Provider.of<GlobalProvider>(context);
-    final _blendUser = provider.blendUser;
-
     return PreferredSize(
       preferredSize: Size.fromHeight(kToolbarHeight),
       child: AppBar(
