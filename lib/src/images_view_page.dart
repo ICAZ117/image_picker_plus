@@ -231,6 +231,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
               leftIcon: Icons.arrow_back,
               rightFunction: widget.rightFunction,
               rightText: 'Next',
+              right: doneButton(),
             ).build(context),
             body: buildGridView(),
         );
@@ -781,6 +782,7 @@ class IPPSequentialAppBar extends StatelessWidget {
   final IconData leftIcon;
   final Function rightFunction;
   final String rightText;
+  final Widget right;
 
   const IPPSequentialAppBar({
     super.key,
@@ -788,6 +790,7 @@ class IPPSequentialAppBar extends StatelessWidget {
     required this.leftIcon,
     required this.rightFunction,
     required this.rightText,
+    required this.right,
   });
 
   @override
@@ -812,19 +815,7 @@ class IPPSequentialAppBar extends StatelessWidget {
         ),
         actions: <Widget>[
           // button using user's profile picture
-          GestureDetector(
-            onTap: () {
-              rightFunction();
-            },
-            child: Container(
-                margin: EdgeInsets.only(right: 20),
-                child: Text(
-                  rightText,
-                  style: TextStyle(
-                    fontSize: 17,
-                  ),
-                )),
-          ),
+          right,
         ],
       ),
     );
