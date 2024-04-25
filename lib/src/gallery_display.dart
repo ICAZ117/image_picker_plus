@@ -237,21 +237,7 @@ class CustomImagePickerState extends State<CustomImagePicker>
                     if (multiSelectionModeValue) {
                       return clearSelectedImages();
                     } else {
-                      return Column(
-                        children: [
-                          buildTabBar(),
-                          ElevatedButton(
-                            onPressed: () {
-                              print("button pressed");
-                            },
-                            child: Text("Continue Without Media"),
-                            style: ElevatedButton.styleFrom(
-                              minimumSize: const Size(double.infinity,
-                                  double.infinity), // <--- this line helped me
-                            ),
-                          ),
-                        ],
-                      );
+                      return buildTabBar();
                     }
                   } else {
                     return Visibility(
@@ -269,6 +255,16 @@ class CustomImagePickerState extends State<CustomImagePicker>
           ] else ...[
             tapBarMessage(false)
           ],
+          ElevatedButton(
+            onPressed: () {
+              print("button pressed");
+            },
+            child: Text("Continue Without Media"),
+            style: ElevatedButton.styleFrom(
+              minimumSize: const Size(
+                  double.infinity, double.infinity), // <--- this line helped me
+            ),
+          ),
         ],
       ),
     );
