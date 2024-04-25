@@ -226,12 +226,12 @@ class _ImagesViewPageState extends State<ImagesViewPage>
           )
         : Scaffold(
             backgroundColor: widget.appTheme.primaryColor,
-            appBar: SequentialAppBar(
+            appBar: IPPSequentialAppBar(
               leftFunction: widget.leftFunction,
               leftIcon: Icons.clear_rounded,
               rightFunction: widget.rightFunction,
               rightText: 'Next',
-            )
+            ),
             body: buildGridView(),
         );
   }
@@ -780,13 +780,13 @@ import 'package:blend/global_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
-class SequentialAppBar extends StatelessWidget {
+class IPPSequentialAppBar extends StatelessWidget {
   final Function leftFunction;
   final IconData leftIcon;
   final Function rightFunction;
   final String rightText;
 
-  const SequentialAppBar({
+  const IPPSequentialAppBar({
     super.key,
     required this.leftFunction,
     required this.leftIcon,
