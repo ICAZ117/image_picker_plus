@@ -352,6 +352,10 @@ class CustomImagePickerState extends State<CustomImagePicker>
                       : (divideNumber == 2 ? widthOfTab : widthOfScreen / 1.5)),
               child: Container(height: 1, width: widthOfTab, color: blackColor),
             ),
+            ElevatedButton(onPressed: () {
+              print("button pressed");
+            
+            }, child: Text("Continue Without Media")),
           ],
         );
       },
